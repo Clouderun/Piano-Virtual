@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #e3f2fd;
+}
+
+.container {
+    width: 780px;
+    border-radius: 20px;
+    padding: 35px 40px;
+    background-color: hotpink;
+    border: 1px solid black;
+    box-shadow: 20px 20px 5px rgba(55, 109, 148, 0.35);
+}
+
+.container header {
+    color: #a01c48;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h2{
+    font-size: 1.6rem;
+}
+
+header .column {
+    display: flex;
+    align-items: center;
+}
+
+header .column span{
+    font-weight: 500;
+    margin-right: 15px;
+    font-size: 1.19rem;
+
+}
+
+.volume-slider input {
+    accent-color: #ffe415;
+}
+
+.keys-check input{
+    width: 60px;
+    height: 30px;
+    /* deixou sem estilo para poder estilizar como quiser */
+    appearance: none;
+    border-radius: 30px;
+    background-color: #ca307d;
+    cursor: pointer;
+    /* quando tem uma div dentro de outra, o ideal e a div pai seja relative e filho absolute */
+    position: relative;
+}
+
+.keys-check input::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: #ec318f;
+    position: absolute;
+    top: 50%;
+    left: 0.3rem;
+    border-radius: inherit;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.keys-check input:checked::before {
+    left: 2.1rem;
+    background-color: #e5aac7;
+}
+
+.piano-keys {
+    display: flex;
+    margin-top: 40px;
+}
+
+.piano-keys .key {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    color: #ffe415;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.piano-keys .white {
+    width: 70px;
+    height: 230px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+}
+
+.piano-keys .black{
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px 0 -22px;
+    border: 1px solid black;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333, #000 );
+}
+
+/* letras do teclado*/
+.piano-keys span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.13rem;
+}
+
+.piano-keys .white.active {
+    /* sombreado interno ao clicar na tecla*/
+    box-shadow: inset -5px 5px 20px  rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom #fff 0%, #eee 100%);
+}
+
+.piano-keys .black.active{
+    box-shadow: inset -5px 5px 10px  rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom #000, #505050);
+}
+
+.piano-keys .key.hide span {
+    display: none;
+}
